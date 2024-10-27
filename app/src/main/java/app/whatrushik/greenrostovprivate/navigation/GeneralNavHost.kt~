@@ -1,0 +1,19 @@
+package app.whatrushik.greenrostovprivate.navigation
+
+import androidx.compose.runtime.Composable
+import app.whatrsuhik.auth.login.navigation.loginRegistry
+import app.whatrsuhik.auth.register.navigation.RegisterProvider
+import app.whatrsuhik.auth.register.navigation.registerRegistry
+import app.whatrushik.core.navigation.core.NavigationHost
+import app.whatrushik.core.navigation.core.Navigator
+import app.whatrushik.main.navigation.mainRegistry
+
+@Composable
+fun AppNavHost(navigator: Navigator) = NavigationHost(
+    start = RegisterProvider,
+    navigator = navigator
+) {
+    mainRegistry()
+    loginRegistry()
+    registerRegistry()
+}
