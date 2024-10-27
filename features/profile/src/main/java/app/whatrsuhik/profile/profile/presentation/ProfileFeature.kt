@@ -26,8 +26,9 @@ class ProfileFeature(
         val action by controller.collectActions()
 
         LaunchedEffect(Unit) {
-            listener(ProfileEvent.Init)
+            listener(ProfileEvent.MyActivity)
         }
+
 
         ProfileView(state, listener)
 

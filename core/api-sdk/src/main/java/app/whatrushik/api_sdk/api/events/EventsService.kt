@@ -42,4 +42,10 @@ internal class EventsService(
         path = "events/members/${data.eventId}",
         method = HttpMethod.Get
     ).body()
+
+    override suspend fun my(data: Event.Parameters.My): List<Event.Responses.Event> =
+        requestService.makeAuthRequest(
+            path = "events/my",
+            method = HttpMethod.Get
+        ).body()
 }

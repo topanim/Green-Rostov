@@ -62,7 +62,9 @@ fun EventsView(
             .fillMaxHeight()
             .padding(bottom = spacing.lg.dp)
     ) {
-        LazyColumn {
+        LazyColumn(
+            Modifier.weight(1f)
+        ) {
             items(state.events) {
                 CardItem(
                     id = it.id,
@@ -85,14 +87,15 @@ fun EventsView(
                 }
                 Space(spacing.sm)
             }
+
         }
-
-        Space(spacing.sm)
-
         Button(
             fill = true,
             label = "Создать мероприятие"
         ) { listener.invoke(EventsEvent.ClickButton) }
+
+        Space(spacing.sm)
+
 
     }
 }

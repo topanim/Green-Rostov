@@ -45,7 +45,6 @@ fun Achievement(
         LazyRow(
             horizontalArrangement = Arrangement.spacedBy(spacing.md.dp)
         ) {
-
             itemsIndexed(categories, key = { _, item -> item.title }) { index, item ->
                 CategoryBoxItem(
                     painterResource(item.image),

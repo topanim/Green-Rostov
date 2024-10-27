@@ -5,6 +5,7 @@ import app.whatrsuhik.ui.R
 import app.whatrushik.api_sdk.shared.dto.Event
 
 data class ProfileState(
+    val id:Int = 0,
     val selectedCategoryIndex: Int = 0,
     val selectedEventIndex: Int? = null,
     val events: List<Event.Responses.Event> = emptyList(),

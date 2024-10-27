@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import app.whatrsuhik.ui.R
 import app.whatrsuhik.ui.components.spacer.Space
 import app.whatrsuhik.ui.components.spacer.VerticalSpace
 import app.whatrsuhik.ui.components.styled_box.StyledBox
@@ -22,8 +23,24 @@ import app.whatrsuhik.ui.theme.SHUITheme
 import app.whatrsuhik.ui.theme.SHUITheme.spacing
 
 @Composable
-fun LeaderBoard(leaderBoardList: List<LeaderMock>) {
-
+fun LeaderBoard() {
+    val leaderLick = listOf(
+        LeaderMock(
+            "Паша",
+            "Брускевич",
+            R.drawable.frame1
+        ),
+        LeaderMock(
+            "Паша",
+            "Брускевич",
+            R.drawable.frame1
+        ),
+        LeaderMock(
+            "Паша",
+            "Брускевич",
+            R.drawable.frame1
+        )
+    )
     Column {
         Text(
             "Лидеры недели",
@@ -37,16 +54,16 @@ fun LeaderBoard(leaderBoardList: List<LeaderMock>) {
                 .fillMaxWidth()
                 .padding(start = 10.dp, top = 10.dp, end = 10.dp, bottom = 6.dp)
         ) {
-            LazyColumn {
-                items(leaderBoardList) {
+            Column {
+                leaderLick.forEach {
                     UserItem(it.image, it.name, it.surname)
                     VerticalSpace(spacing.xs)
                 }
             }
         }
-
-
     }
+
+
 }
 
 @Composable

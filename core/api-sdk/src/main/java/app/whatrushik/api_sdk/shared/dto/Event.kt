@@ -48,7 +48,7 @@ object Event {
         @Serializable
         data class EventMembers(
             @SerialName("event_id") val eventId: Int,
-            val member: List<Event>
+            val member: List<Member>
         ) : Responsable
 
         @Serializable

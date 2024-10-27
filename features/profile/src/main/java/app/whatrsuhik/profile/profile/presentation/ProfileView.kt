@@ -3,6 +3,7 @@ package app.whatrsuhik.profile.profile.presentation
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -15,7 +16,7 @@ import app.whatrsuhik.profile.profile.presentation.components.LeaderBoard
 import app.whatrsuhik.profile.profile.presentation.components.MyActivity
 import app.whatrsuhik.profile.profile.presentation.components.ProfileInfo
 import app.whatrsuhik.profile.profile.presentation.components.leaderLick
-import app.whatrsuhik.ui.components.spacer.Space
+import app.whatrsuhik.ui.components.spacer.VerticalSpace
 import app.whatrsuhik.ui.components.topbar.TopAppBar
 import app.whatrsuhik.ui.theme.SHUITheme.spacing
 
@@ -29,16 +30,21 @@ fun ProfileView(
         .padding(bottom = spacing.sm.dp)
         .padding(horizontal = 20.dp)
 ) {
-
     TopAppBar(title = "Профиль")
-    Space(spacing.md)
-    ProfileInfo("Дарья", "Архипова", "Ростов")
-    Space(spacing.lg)
-    MyActivity(state.events)
-    Space(spacing.lg + 3)
-    Achievement(state.categories, state.selectedEventIndex ?: 6) { }
-    Space(spacing.lg)
-    LeaderBoard(leaderLick)
+    VerticalSpace(spacing.lg)
+    LazyColumn(
+    ) {
+        item {
+
+            ProfileInfo("Дарья", "Архипова", "Ростов")
+            VerticalSpace(spacing.md)
+            MyActivity(state.events)
+            VerticalSpace(spacing.md)
+            Achievement(state.categories, state.selectedEventIndex ?: 6) { }
+            VerticalSpace(spacing.md)
+            LeaderBoard()
+        }
+    }
 }
 
 @Preview

@@ -17,4 +17,8 @@ interface IEventsService {
     suspend fun members(
         data: Event.Parameters.EventMembers
     ): List<Event.Responses.EventMembers>
+
+    suspend fun my(
+        data: Event.Parameters.My
+    ): List<Event.Responses.Event>
 }

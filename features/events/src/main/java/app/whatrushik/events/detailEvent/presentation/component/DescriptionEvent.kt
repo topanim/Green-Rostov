@@ -26,5 +26,6 @@ fun DescriptionEvent(text: String) {
             maxLines = 2,
             overflow = TextOverflow.Ellipsis
         )
+        Space(spacing.lg)
     }
 }

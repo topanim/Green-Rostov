@@ -3,6 +3,7 @@ package app.whatrushik.events.detailEvent.presentation
 import android.graphics.Bitmap
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
@@ -27,6 +28,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.asImageBitmap
@@ -98,27 +100,25 @@ fun DetailEventView(
             }
 
             VerticalSpace(spacing.lg)
-            DateTimeDescription()
+            DateTimeDescription(state.title, state.latitude, state.longitude)
 
             VerticalSpace(spacing.md)
             HorizontalDivider(color = SHUITheme.palettes.muted)
 
             VerticalSpace(spacing.lg)
-
-            AboutEvent(state.title)
             DescriptionEvent(state.description)
 
             HorizontalDivider(color = SHUITheme.palettes.muted)
             VerticalSpace(spacing.lg)
-
-            Button(
-                fill = true,
-                label = "Участвую",
-                mode = if (state.logging) ButtonMode.Loading else ButtonMode.Default,
-                enabled = !state.logging,
-            ) { listener(DetailEventEvent.OnParticipantClicked(state.id)) }
         }
 
+    }
+    Box(modifier = Modifier.fillMaxSize().padding(bottom = spacing.lg.dp).padding(horizontal = 20.dp),
+        contentAlignment = Alignment.BottomCenter) {
+        Button(
+            fill = true,
+            label = "Участвую"
+        ) { listener(DetailEventEvent.OnParticipantClicked(state.id)) }
     }
 }
 
